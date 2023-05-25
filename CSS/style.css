@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+:root{
+    --whiteColor:#fff;
+    --bgColor:#def2ec;
+    --darkColor:#23345c;
+    --primaryColor:#23515c;
+    --textColor:#333;
+    --transition: 0.4s ease-in-out;
+}
+.container{
+    background-color: var(--bgColor);
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 13px;
+}
+.heading{
+    text-align: center;
+}
+.heading h1{
+    margin: 50px 0;
+    position: relative;
+    color: var(--primaryColor);
+}
+.heading h1::after{
+    content: "";
+    position: absolute;
+    left:50%;
+    bottom: -10px;
+    -webkit-transform: translate(-50% , -50%);
+        -ms-transform: translate(-50% , -50%);
+            transform: translate(-50% , -50%);
+    height: 2px;
+    width: 95px;
+    background-image: -webkit-gradient(linear ,left top, right top ,from(#23345c) ,to(#23515c) );
+    background-image: -o-linear-gradient(left ,#23345c ,#23515c );
+    background-image: linear-gradient(to right ,#23345c ,#23515c );
+}
+.accordion{
+    background-color: var(--whiteColor);
+    border: 1px solid var(--primaryColor);
+    border-radius: 4px;
+    max-width: 700px;
+    width: 100%;
+    padding:20px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+header{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+header p,
+header i{
+    font-size: 18px;
+    color:var(--darkColor);
+    font-weight: 500;
+}
+.description{
+    line-height: 1.4;
+    height: 0;
+    color:var(--darkColor);
+    overflow: hidden;
+    padding-top: 10px;
+    -webkit-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    transition: height 1s ease;
+}
+@-webkit-keyframes fade{
+    from{
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+                transform: translateY(-10px);
+    } to{
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+}
+@keyframes fade{
+    from{
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+                transform: translateY(-10px);
+    } to{
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+}
+.accordion.open .description{
+    padding-top: 15px;
+    -webkit-animation: fade 1.5s ease-in-out;
+            animation: fade 1.5s ease-in-out;
+}
